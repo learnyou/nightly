@@ -33,7 +33,7 @@
 FNOM=`date -u +"lysa-%Y-%m-%d.pdf"`
 
 # The directory from which the nighlies are served
-LYSADIR=/var/www/nightly.learnyou.org/lysa
+LYSADIR=/usr/local/www/nightly.learnyou.org/lysa
 
 # Start in home directory
 cd
