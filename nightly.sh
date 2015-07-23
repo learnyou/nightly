@@ -35,6 +35,11 @@ FNOM=`date -u +"lysa-%Y-%m-%d.pdf"`
 # The directory from which the nighlies are served
 LYSADIR=/var/www/nightly.learnyou.org/lysa
 
+cleanup () {
+    cd
+    rm -rf lysa
+}
+
 # Start in home directory
 cd
 
@@ -46,7 +51,7 @@ git submodule update
 cd ..
 
 # If nothing has changed from a day ago, exit:
-[[ `git diff --since 24h` == "" ]] && exit 0
+[[ `git diff --since 24h` == "" ]] && cleanup && exit 0
 
 # Build LYSA
 make
@@ -58,6 +63,4 @@ cp lysa-en.pdf ${LYSADIR}/en/${FNOM}
 cd $LYSADIR/en
 ln -sf ${FNOM} lysa-latest.pdf
 
-# Clean up
-cd
-rm -rf lysa
+cleanup
