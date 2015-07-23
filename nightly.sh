@@ -46,7 +46,9 @@ git submodule update
 cd ..
 
 # If nothing has changed from a day ago, exit:
-[[ `git diff --since 24h` == "" ]] && exit 0
+if [[ `git diff --since 24h` == "" ]] ; then
+    exit 0
+fi
 
 # Build LYSA
 make
