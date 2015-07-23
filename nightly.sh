@@ -3,7 +3,7 @@
 # Publishes nightly builds of LYSA: http://learnyou.org/lysa.html
 # 
 # For a list of dependencies, see
-# https://github.com/learnyou/lysa/blob/master/en/CONTRIBUTING.md
+# https://github.com/learnyou/lysa/blob/master/en/README.md
 # 
 # Copyright (c) 2015 Peter Harpending. <peter@harpending.org>
 # All rights reserved.
@@ -40,10 +40,10 @@ cd
 
 # Clone the lysa repo
 git clone git://github.com/learnyou/lysa.git
-cd lysa/en/book
+cd lysa/en
 git submodule init
 git submodule update
-cd ../..
+cd ..
 
 # If nothing has changed from a day ago, exit:
 [[ `git diff --since 24h` == "" ]] && exit 0
