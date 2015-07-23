@@ -43,15 +43,19 @@ git clone git://github.com/learnyou/lysa.git
 cd lysa/en/book
 git submodule init
 git submodule update
+cd ../..
+
+# If nothing has changed from a day ago, exit:
+[[ `git diff --since 24h` == "" ]] && exit 0
 
 # Build LYSA
-./lysabuild
+make
 
 # Publish the nightly
-cp lysa.pdf ${LYSADIR}/${FNOM}
+cp lysa-en.pdf ${LYSADIR}/${FNOM}
 cd $LYSADIR
 ln -sf ${FNOM} lysa-latest.pdf
 
 # Clean up
 cd
-rm lysa -rf
+rm -rf lysa
