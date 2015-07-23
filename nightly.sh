@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # 
 # Publishes nightly builds of LYSA: http://learnyou.org/lysa.html
 # 
@@ -46,9 +46,7 @@ git submodule update
 cd ..
 
 # If nothing has changed from a day ago, exit:
-if [[ `git diff --since 24h` == "" ]] ; then
-    exit 0
-fi
+[[ `git diff --since 24h` == "" ]] && exit 0
 
 # Build LYSA
 make
