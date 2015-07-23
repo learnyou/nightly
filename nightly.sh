@@ -52,8 +52,10 @@ cd ..
 make
 
 # Publish the nightly
-cp lysa-en.pdf ${LYSADIR}/${FNOM}
-cd $LYSADIR
+
+# English
+cp lysa-en.pdf ${LYSADIR}/en/${FNOM}
+cd $LYSADIR/en
 ln -sf ${FNOM} lysa-latest.pdf
 
 # Clean up
