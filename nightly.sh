@@ -9,7 +9,7 @@
 FNOM=`date -u +"lysa-%Y-%m-%d.pdf"`
 
 # The directory from which the nighlies are served
-LYSADIR=/var/www/nightly.learnyou.org/lysa
+LYSADIR=/usr/share/nginx/nightly.learnyou.org/lysa
 
 cleanup () {
     cd
