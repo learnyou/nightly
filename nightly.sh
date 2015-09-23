@@ -6,7 +6,8 @@
 # https://github.com/learnyou/lysa/blob/master/en/README.md
 
 # This will be the name of this nightly build
-FNOM=`date -u +"lysa-%Y-%m-%d.pdf"`
+FNOM_EBOOK=`date -u +"lysa-%Y-%m-%d-ebook.pdf"`
+FNOM_PRINT=`date -u +"lysa-%Y-%m-%d-print.pdf"`
 
 # The directory from which the nighlies are served
 LYSADIR=/usr/share/nginx/nightly.learnyou.org/lysa
@@ -38,8 +39,10 @@ make
 # Publish the nightly
 
 # English
-cp lysa-en.pdf ${LYSADIR}/en/${FNOM}
+cp lysa-en-ebook.pdf ${LYSADIR}/en/${FNOM_EBOOK}
+cp lysa-en-print.pdf ${LYSADIR}/en/${FNOM_PRINT}
 cd $LYSADIR/en
-ln -sf ${FNOM} lysa-latest.pdf
+ln -sf ${FNOM_EBOOK} lysa-latest-ebook.pdf
+ln -sf ${FNOM_PRINT} lysa-latest-print.pdf
 
 cleanup
